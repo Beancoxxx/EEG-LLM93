@@ -1,0 +1,37 @@
+2025-07-18 12:18:07.336946: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-07-18 12:18:07.354323: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1752841087.375613    8274 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1752841087.382123    8274 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-18 12:18:07.403609: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+正在加载DEAP train 数据集...
+DEAP train 数据集加载完成:
+  - 样本数: 24800
+  - 数据形状: (24800, 32, 256)
+  - 标签分布: [11191 13609]
+  - 数据已标准化
+正在加载DEAP val 数据集...
+DEAP val 数据集加载完成:
+  - 样本数: 7440
+  - 数据形状: (7440, 32, 256)
+  - 标签分布: [3286 4154]
+  - 数据已标准化
+正在加载DEAP test 数据集...
+DEAP test 数据集加载完成:
+  - 样本数: 7440
+  - 数据形状: (7440, 32, 256)
+  - 标签分布: [2759 4681]
+  - 数据已标准化
+
+[TimeLLM] 初始化模型 - 任务类型: classification
+Traceback (most recent call last):
+  File "/content/timellm/Time-LLM-main/run_main_enhanced.py", line 260, in <module>
+    model = TimeLLM.Model(args).float()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/content/timellm/Time-LLM-main/models/TimeLLM.py", line 174, in __init__
+    for param in self.llm_model.parameters():
+                 ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'Model' object has no attribute 'llm_model'

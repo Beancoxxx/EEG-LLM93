@@ -1,0 +1,44 @@
+2025-07-18 12:11:31.721074: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-07-18 12:11:31.739399: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1752840691.760896    6422 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1752840691.767442    6422 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-18 12:11:31.789414: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+正在加载DEAP train 数据集...
+DEAP train 数据集加载完成:
+  - 样本数: 24800
+  - 数据形状: (24800, 32, 256)
+  - 标签分布: [11191 13609]
+  - 数据已标准化
+正在加载DEAP val 数据集...
+DEAP val 数据集加载完成:
+  - 样本数: 7440
+  - 数据形状: (7440, 32, 256)
+  - 标签分布: [3286 4154]
+  - 数据已标准化
+正在加载DEAP test 数据集...
+DEAP test 数据集加载完成:
+  - 样本数: 7440
+  - 数据形状: (7440, 32, 256)
+  - 标签分布: [2759 4681]
+  - 数据已标准化
+
+[TimeLLM] 初始化模型 - 任务类型: classification
+[ClassificationHead] 初始化完成:
+  - 输入维度: 2048 (n_vars=32 × d_model=64)
+  - 输出类别: 2
+[TimeLLM] 分类任务配置:
+  - 类别数: 2
+  - 通道数: 32
+  - Patch数: 32
+计算类别权重...
+类别权重: tensor([1.0975, 0.9025])
+Traceback (most recent call last):
+  File "/content/timellm/Time-LLM-main/run_main_enhanced.py", line 288, in <module>
+    criterion = create_loss_function(
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/content/timellm/Time-LLM-main/utils/loss_classification.py", line 356, in create_loss_function
+    return FocalLoss(alpha=class_weights, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: utils.loss_classification.FocalLoss() got multiple values for keyword argument 'alpha'
